@@ -10,7 +10,7 @@ const mockChats = [
   {
     id: 1,
     name: "Luis - Github",
-    avatar: '/Images/avtar-2.jpeg',
+    avatar: '../public/avtar-1.jpeg',
     messages: [
       {
         id: 1,
@@ -29,7 +29,7 @@ const mockChats = [
   {
     id: 2,
     name: "Ivan - Nike",
-    avatar: "/Images/avtar-3.jpeg",
+    avatar: "../public/avtar-2.jpeg",
     messages: [
       {
         id: 1,
@@ -48,7 +48,7 @@ const mockChats = [
   {
     id: 3,
     name: "Sophia - Amazon",
-    avatar: "/Images/avtar-1.jpeg",
+    avatar: "../public/avtar-3.jpeg",
     messages: [
       {
         id: 1,
@@ -67,7 +67,7 @@ const mockChats = [
   {
     id: 4,
     name: "Michael - Tesla",
-    avatar: "/Images/tesla.jpeg",
+    avatar: "../public/tesla.jpeg",
     messages: [
       {
         id: 1,
@@ -86,7 +86,7 @@ const mockChats = [
   {
     id: 5,
     name: "Emma - Apple",
-    avatar: "/Images/Apple.jpeg",
+    avatar: "../public/Apple.jpeg",
     messages: [
       {
         id: 1,
@@ -105,7 +105,7 @@ const mockChats = [
   {
     id: 6,
     name: "Olivia - Microsoft",
-    avatar: "/Images/Micro.jpeg",
+    avatar: "../public/Micro.jpeg",
     messages: [
       {
         id: 1,
@@ -124,7 +124,7 @@ const mockChats = [
   {
     id: 7,
     name: "Liam - Netflix",
-    avatar: "/Images/Netflix.png",
+    avatar: "https://cdn.logojoy.com/wp-content/uploads/20231031154602/2016-netflix-logo.png",
     messages: [
       {
         id: 1,
