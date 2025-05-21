@@ -1,11 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-const app = express();
+const path = require("path");
 
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Middleware
 app.use(cors());
 app.use(express.json());
-
-const PORT = 5000;
 
 // Predefined replies by category
 const replyBank = [
@@ -26,7 +28,7 @@ const replyDefault = [
   "Thank you for reaching out! We’re working on your query."
 ];
 
-// Helper function to detect category
+// Category detection logic
 function detectCategory(message) {
   const msg = message.toLowerCase();
   if (msg.includes("bank") || msg.includes("account") || msg.includes("transaction")) {
@@ -37,6 +39,7 @@ function detectCategory(message) {
   return "default";
 }
 
+// Chat endpoint
 app.post("/chat", (req, res) => {
   const { message } = req.body;
 
@@ -55,9 +58,16 @@ app.post("/chat", (req, res) => {
     reply = replyDefault[Math.floor(Math.random() * replyDefault.length)];
   }
 
-  res.json({ reply });
+  return res.json({ reply });
 });
 
+// 🧠 Serve frontend from Express (for combined deployment)
+app.use(express.static(path.join(__dirname, "../client/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
+
+// Start the server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`✅ Server running on http://localhost:${PORT}`);
 });
