@@ -1,6 +1,11 @@
-const express = require("express");
-const cors = require("cors");
-const path = require("path");
+import express from "express";
+import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// __dirname equivalent in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(cors());
@@ -8,7 +13,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
-// Predefined replies by category
+// Predefined replies
 const replyBank = [
   "For bank-related queries, please ensure your account is verified.",
   "Please visit your nearest bank branch for more support.",
@@ -27,7 +32,7 @@ const replyDefault = [
   "Thank you for reaching out! We’re working on your query.",
 ];
 
-// Helper function to detect category
+// Category detection
 function detectCategory(message) {
   const msg = message.toLowerCase();
   if (
@@ -76,5 +81,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`✅ Server running on http://localhost:${PORT}`);
 });
